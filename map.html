@@ -84,16 +84,23 @@
             title: place.name
           });
 
-          const content = `
-            <div class="info-window">
-              <h3>${place.name}</h3>
-              <p><strong>Category:</strong> ${place.category}</p>
-              <p><strong>Rating:</strong> ${"⭐️".repeat(place.rating)}</p>
-              <p>${place.description || ""}</p>
-              ${place.image ? `<img src="${place.image}" alt="${place.name}">` : ""}
-              <p><em>${place.address}</em></p>
-            </div>
-          `;
+        const content = `
+          <div class="info-window" style="
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            max-width: 240px;
+            width: 240px;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+          ">
+            <h3 style="margin: 0 0 6px 0; font-size: 16px;">${place.name}</h3>
+            <p><strong>Category:</strong> ${place.category}</p>
+            <p><strong>Rating:</strong> ${"⭐️".repeat(place.rating)}</p>
+            <p style="margin: 6px 0;">${place.description || ""}</p>
+            ${place.image ? `<img src="${place.image}" alt="${place.name}" style="width:100%; border-radius:8px; margin-top:8px;">` : ""}
+            <p style="margin-top: 8px;"><em>${place.address}</em></p>
+          </div>
+        `;
 
           const infoWindow = new google.maps.InfoWindow({ content });
 
